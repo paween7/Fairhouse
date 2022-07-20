@@ -1,1 +1,17 @@
-Fairhouse App is running
+<main>
+    <header><img src="../assets/logo.svg" alt="fairhouse">Fairhouse</header>
+   <section>
+    <app-housing-list [locationList]="housingLocationList" (locationSelectedEvent)="updateSelectedLocation($event)"></app-housing-list>
+   </section>
+   <article>
+    <ng-container *ngIf="selectedLocation">
+    <img [src]="selectedLocation?.photo">
+    <p>{{selectedLocation?.name}}</p>
+    <p>{{selectedLocation?.city}}, {{selectedLocation?.state}}</p>
+    <p>Available Units: {{selectedLocation?.availableUnits}}</p>
+    <p>{{selectedLocation?.laundry ? "Has laundry" : "Does Not have laundry"}}</p>
+    <p>{{selectedLocation?.wifi ? "Has wifi" : "Does Not have wifi"}}</p>
+    <iframe frameborder="0" src="https://itch.io/embed-upload/6056207?color=333333" allowfullscreen="" width="640" height="380"><a href="https://maxnice.itch.io/respo">Play Respo on itch.io</a></iframe>
+    </ng-container>
+  </article>
+  </main>
